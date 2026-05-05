@@ -16,6 +16,6 @@ Traditional Wave Energy Converters (WECs) often use fixed damping systems that c
 # Solution:
 To solve this, I implemented an RL agent:
 
-  - RL Agent: A Proximal Policy Optimization (**PPO**) agent.
-  - Memory: Integrated Long-Short Term Memory (**LSTM**) layer to process time-series wave elevation data, allowing the agent to understand temporal patterns.
-  - Control: Real-time adjustment of the damping coefficient to maintain the optimal **Capture Width Ratio (CWR)**.
+  - A Proximal Policy Optimization (**PPO**) agent.
+  - Integrated Long-Short Term Memory (**LSTM**) layer to process time-series wave elevation data, allowing the agent to understand temporal patterns.
+  - Real-time adjustment of the damping coefficient to maintain the optimal **Capture Width Ratio (CWR)**.

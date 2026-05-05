@@ -19,3 +19,19 @@ To solve this, I implemented an RL agent:
   - A Proximal Policy Optimization (**PPO**) agent.
   - Integrated Long-Short Term Memory (**LSTM**) layer to process time-series wave elevation data, allowing the agent to understand temporal patterns.
   - Real-time adjustment of the damping coefficient to maintain the optimal **Capture Width Ratio (CWR)**.
+
+# Key Results & Impact
+
+The model was validated against 200 diverse wave datasets. The results demonstrate:
+
+| Metric | Fixed Damping (Baseline) | RL Controller (Ours) | Improvement |
+| :--- | :---: | :---: | :---: |
+| **Total Energy Extracted** | 3.1149e+08 J | 3.3810e+08 | **+ 8.54%**|
+| **Capture Width Ratio (CWR)** | 23.69% | 25.71% | **+ 8.57%**  |  
+| **Control Adaptibility** | Static | Dynamic & Real-time | N/A |
+
+**Summary**: The RL agent achieved an **8.54%** increase in energy extraction efficiency, proving that intelligent, data-driven control is the future of sustainable ocean engineering.
+
+# Techinical Stack
+- MATLAB / Simulink
+- High-Performance Computing (HPC) with Slurm for parallel training.

@@ -1,0 +1,102 @@
+function generate_wave_data(N_waves, duration, dt, Tp, gamma, H_s, JONSWAP_N, hydro_location)
+% Generate the N number of JONSWAP wave series and their excitation forces
+% Input:
+% - N_waves: the number of samples
+% - duration, dt: time series length and time interval
+% - Tp, gamma, H_s: JONSWAP parameters
+% - hydro_location: the file path for hydrodynamic calculation
+%
+% Output (wave_data_struct): struct vector including N wave data
+
+fp = 1/Tp;          % Peak frequency (Hz)
+rho = 1000;
+g = 9.81;
+
+hs_str = strrep(num2str(H_s), '.', 'p');
+tp_str = strrep(num2str(Tp), '.', 'p');
+
+N_train = round(N_waves * 0.8);
+N_test = N_waves - N_train;
+
+train_folder = sprintf('Train_waveDataset_Hs%s_Tp%s_NW%d_JN%d', hs_str, tp_str, N_train, JONSWAP_N);
+test_folder = sprintf('Test_waveDataset_Hs%s_Tp%s_NW%d_JN%d', hs_str, tp_str, N_test, JONSWAP_N);
+
+if ~exist(train_folder, 'dir'), mkdir(train_folder); end
+if ~exist(test_folder, 'dir'), mkdir(test_folder); end
+
+% Generate the JONSWAP spectrum and convert to a time series (psd2eta)
+[S_f, S_w, f_mean] = JONSWAP(gamma, fp, H_s, JONSWAP_N);
+t_ramp = 10/f_mean;
+% Te = 1/f_mean;
+
+% Load impulse responses for both bodies
+[IRF_t, FIR_combined] = Excitation_FIR(hydro_location);
+dt_irf = IRF_t(2) - IRF_t(1);  % dt_irf = 0.01 s
+
+% Store impulse responses in a structure
+IRF.b1 = FIR_combined.b1;
+IRF.b2 = FIR_combined.b2;
+
+sets = {struct('name', 'Train', 'N', N_train, 'folder', train_folder, 'seed_offset', 0), ...
+        struct('name', 'Test', 'N', N_test, 'folder', test_folder, 'seed_offset', 10000)};
+
+fprintf('Starting wave generation for %d cases... \n', N_waves);
+
+for s = 1:length(sets)
+    current_set = sets{s};
+    fprintf('--- Starting %s Generation (%d cases) ---\n', current_set.name, current_set.N);
+
+    for k = 1:current_set.N
+        current_seed = (k-1) + current_set.seed_offset;
+        rng(current_seed);
+    
+        t = (0:dt:duration)';
+        eta = psd2eta(S_w, fp, t);
+    
+        % Ramp function
+        Ramp.fct = ones(1, length(t));
+        Ramp.t_index = find(t_ramp<=t,1);
+        Ramp.fct(1,1:Ramp.t_index) = 0.5*(1+cos(pi+pi/t_ramp.*t(1:Ramp.t_index)));
+        eta_JONSWAP = [t, eta.*Ramp.fct']; % wave elevation
+    
+        % Create time vector for excitation and upsample to IRF resolution (dt_irf)
+        t_ex = (0:dt:(length(eta_JONSWAP)-1)*dt)';
+        t_ex_fine = (t_ex(1):dt_irf:t_ex(end))';
+        eta_ex_fine = interp1(t_ex, eta_JONSWAP(:,2), t_ex_fine, 'linear', 'extrap');
+    
+        % Perform convolution for each body (scale by dt_irf)
+        Fex_b1 = conv(eta_ex_fine, IRF.b1, 'full') * dt_irf;
+        Fex_b2 = conv(eta_ex_fine, IRF.b2, 'full') * dt_irf;
+    
+        % Create time vector for the convolution result (fine grid)
+        t_conv = (t_ex_fine(1) + IRF_t(1)) : dt_irf : (t_ex_fine(end) + IRF_t(end));
+        t_conv = t_conv(1:length(Fex_b1));  % Ensure matching length
+        
+        % Downsample the convolved force back to the original excitation time vector 't'
+        Fex_b1 = interp1(t_conv, Fex_b1, t, 'linear', 'extrap');
+        Fex_b2 = interp1(t_conv, Fex_b2, t, 'linear', 'extrap');
+    
+        % Store data into the struct vector
+        w.t = t;
+        w.eta = eta_JONSWAP(:, 2);
+        w.Fex1 = Fex_b1;
+        w.Fex2 = Fex_b2;
+        w.H_s = H_s;
+        w.Tp = Tp;
+        w.seed = current_seed;
+       
+        save(fullfile(current_set.folder, sprintf('Wave_%d.mat', k)), "w");
+        clear w;
+    
+        if mod(k, 50) == 0 || k == current_set.N
+            fprintf('[%s] Progress: %d / %d genereated and saved\n', current_set.name, k, current_set.N);
+        end
+    end
+    
+end
+
+fprintf("\n All generation complete! \nTrain Folder: %s \nTest Folder: %s\n", train_folder, test_folder);
+
+end
+
+

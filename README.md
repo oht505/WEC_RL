@@ -1,6 +1,4 @@
-# ! Under Construction !
-
-# Intelligent Wave Energy Control via Reinforcement Learning
+# An Optimal Control of Wave Energy Converters via Recurrent Reinforcement Learning
 **Maximizing energy extraction efficiency through adaptive PPO-LSTM control agents.**
 
 

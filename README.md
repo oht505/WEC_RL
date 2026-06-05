@@ -15,7 +15,8 @@ To bridge this gap, this project proposes a model-free, sequence-learning contro
 ## Repository Structure
 
 ## Environment & Prerequisites
-- MATLAB / Simulink
+- MATLAB (2025a) / Simulink
+- MATLAB: RL Toolbox, DL Toolbox
 - High-Performance Computing (HPC) with Slurm for parallel training.
 
 ## How to Run

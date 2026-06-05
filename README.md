@@ -12,12 +12,15 @@ To bridge this gap, this project proposes a model-free, sequence-learning contro
 * **Physics-Based Energy Efficiency (EE) Reward**: Introduces a normalized reward function mapping the ratio of average extracted power to the available wave energy flux. Since this scales with the magnitude of potential energy contained in the wave cycles, it remains robust across various wave conditions.
 * **Custom Variable Carry-Over System**: Implements specialized boundary logic that transfers internal reward variables and observation histories between partitioned sub-episodes, ensuring seamless temporal learning over long sequences.
 
-### Environment & Prerequisites
+## Repository Structure
+
+## Environment & Prerequisites
 - MATLAB / Simulink
 - High-Performance Computing (HPC) with Slurm for parallel training.
 
+## How to Run
 
-### Results & Performance
+## Results & Performance
 
 The model was validated against 200 diverse wave datasets. The results demonstrate:
 

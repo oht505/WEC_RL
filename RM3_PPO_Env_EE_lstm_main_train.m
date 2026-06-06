@@ -69,7 +69,7 @@ init_state_vec = zeros(307, 1);
 assignin('base', 'init_state_vec', init_state_vec);
 
 % Dataset Setting
-datasetFolder = 'Train_split20s_waveDataset_Hs3p66_Tp9p7_NW800_JN1000_dt0p1';
+datasetFolder = 'Train_split20s_waveDataset_Hs3p66_Tp9p7_NW800_JN1000';
 
 fullDatasetPath = fullfile(pwd, datasetFolder);
 if ~exist(datasetFolder, 'dir')
@@ -118,7 +118,7 @@ pctRunOnAll('FinalSimState = [];');
 % Setup to use Logging Data while training
 tag = sprintf("_Seed%d", exp_seed);
 basePath = fileparts(mfilename('fullpath'));
-folderName = "Training_Episode_EE_lstm_split20_Filter0p25_dt0p1_Best" + tag;
+folderName = "Training_Episode_EE_lstm_split20_Filter0p25_Best" + tag;
 logDir = fullfile(basePath, folderName);
 
 % Create Simulink model as RL Environment
@@ -151,7 +151,7 @@ agent.AgentOptions.CriticOptimizerOptions.GradientThreshold = 5;
 agent.AgentOptions.SampleTime = 0.1;
 
 %% Configure Training Options
-saveDir = "TrainedAgents_EE_lstm_split20_Filter0p25_dt0p1_Best" + tag;
+saveDir = "TrainedAgents_EE_lstm_split20_Filter0p25_Best" + tag;
 
 trainOpts = rlTrainingOptions;
 
@@ -196,7 +196,6 @@ fprintf("End Training... \n");
 
 %% Local Reset Function
 function in = localResetFcn(in, waveFolder, numWaves, waveOrder, numWorkers, trainingDataFolder)
-    % trainingDataFolder = '/nfs/hpc/share/ohhyun/WEC/Training_Episode_EE_lstm_split20_Filter0p25_dt0p1_Best_seed123';
     
     t = getCurrentTask();
     workerID = 1;

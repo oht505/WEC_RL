@@ -68,10 +68,10 @@ The model was validated against 200 diverse wave datasets. The results demonstra
 
 | Control | Mean Energy ($10^8$ J) | Improvement vs. Baseline ($\%$)|
 | :--- | :---: | :---: |
-| Theoretical Maximum | $3.11$  | - |
-| Fixed-Damping (Baseline) | $6.30$ | Base |
-| Instantaneous Frequency (IF) | $3.37$ | $+8.36%$ |
-| **Proposed PPO-LSTM** | **$3.38$** | **$+8.68%$** |
+| Theoretical Maximum | 3.11 | - |
+| Fixed-Damping (Baseline) | 6.30 | Base |
+| Instantaneous Frequency (IF) | 3.37 | +8.36% |
+| **Proposed PPO-LSTM** | **3.38** | **+8.68%** |
 
 
 

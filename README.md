@@ -46,8 +46,9 @@ WEC_RL/                                        # Project root directory
 ├── RM3_PPO_Env_lstm_main.slx                  # Simulation Environment 
 ├── RM3_PPO_Env_lstm_main_train.m              # Main Training code
 ├── RM3_PPO_init_EE_lstm.m                     # Simulation parameter initialization file
+├── plot_CompareEpisodeAgents.m                # 
+├── plot_eta_fex_damp.m                        # Plot water elevation, excitation forces, damping coefficient in Test simulation results
 ├── rm3_ss_0p1.mat                             # WEC simulator info 
-├── test
 ├── run_generate_wave_data.mat                 # (Integrated) Create Training & Validation Dataset     
 └── split_wave_dataset.m                       # Partitioning long wave time-series into smaller parts based on time settings (e.g., 1200s -> 20s x 60, 100s x 12)    
 ````

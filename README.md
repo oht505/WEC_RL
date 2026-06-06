@@ -59,7 +59,7 @@ WEC_RL/                          # Project root directory
 
 
 ## How to Run
-### Dataset Generation
+### Train & Validation Dataset Generation
 
 
 

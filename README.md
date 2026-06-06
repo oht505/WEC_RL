@@ -23,7 +23,7 @@ To bridge this gap, this project proposes a model-free, sequence-learning contro
      * Parallel Computing,
      * Statistics and Machine Learning
      * Control System
-     * DSP system, 
+     * DSP system
      * Signal Processing
      * Simulink
      * Simulink Control Design
@@ -37,7 +37,7 @@ To bridge this gap, this project proposes a model-free, sequence-learning contro
 To ensure execution in MATLAB/Simulink without intricate path configuration, all primary executable scripts, simulation setups, and control logic are maintained directly within the root directory.
 ````
 WEC_RL/                                        # Project root directory
-├── functions/                                 # 
+├── functions/                                 # Utility functions for wave data generation, signal processing, and plotting
 │    └── generate_wave_data.m                  # Generate wave time-series 
 ├── hydro/                                     # Ocean engineering hydrodynamics equation
 ├── PPO_validate_plot_EpisodeAgent_lstm.m      # Validation for agents' performance
@@ -46,8 +46,7 @@ WEC_RL/                                        # Project root directory
 ├── RM3_PPO_Env_lstm_main_train.m              # Main Training code
 ├── RM3_PPO_init_EE_lstm.m                     # Simulation parameter initialization file
 ├── rm3_ss_0p1.mat                             # WEC simulator  
-├── split_wave_dataset.m                       # Partitioning long wave time-series into smaller parts based on time settings (e.g., 1200s -> 20s x 60, 100s x 12)   
-│   
+├── split_wave_dataset.m                       # Partitioning long wave time-series into smaller parts based on time settings (e.g., 1200s -> 20s x 60, 100s x 12)     
 └── valid_lstm.sh                              # Bash file for running 'PPO_validate_plot_EpisodeAgent_lstm.m' 
 ````
 
@@ -69,7 +68,7 @@ The model was validated against 200 diverse wave datasets. The results demonstra
 
 | Metric | Fixed Damping (Baseline) | RL Controller (Ours) | Improvement |
 | :--- | :---: | :---: | :---: |
-| **Total Energy Extracted** | 3.1149e+08 J | 3.3810e+08 | **+ 8.54%**|
+| **Total Energy Extracted** | 3.11x10^8 J | 3.38 10^8 J | **+ 8.64%**|
 | **Capture Width Ratio (CWR)** | 23.69% | 25.71% | **+ 8.68%**  |  
-| **Control Adaptibility** | Static | Dynamic & Real-time | N/A |
+
 

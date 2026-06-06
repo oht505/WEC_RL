@@ -53,17 +53,29 @@ WEC_RL/                                        # Project root directory
 ````
 
 ## How to Run
+
+Since not all environments support HPC Slurm clusters, all procedures are designed to run sequentially within a local MATLAB environment using the provided scripts.
+
 ### Train & Validation Dataset Generation
-1. 
-
-
+1. Open and run `run_generate_wave_data.m` in MATLAB to generate the raw wave environment data.
+    - The code will produce "Train_split20s_waveDataset_Hs3p66_Tp9p7_NW800_JN1000" folder and "Test_split20s_waveDataset_Hs3p66_Tp9p7_NW800_JN1000" folder as results of wave generation.
+   
 ### Training
+1. Before running main code for training, you may need to check every parameters in `RM3_PPO_init_EE_lstm.m` file to initialize the environment variables, hyperparameters, and the physics-based Energy Efficiency (EE) reward function parameters. Every MATLAB function blocks in the Simulink file 'RM3_PPO_Env_EE_lstm_main.slx' are also required to check whether parameters are correct or not.
+2. Execute `RM3_PPO_Env_EE_lstm_main_train.m` to start training the PPO-LSTM agent. (RM3_PPO_init_EE_lstm.m will automatically be loaded by the main code)
+   - This script interacts with the Simulink model (`RM3_PPO_Env_EE_lstm_main.slx`) and the state-space model data (`rm3_ss_0p1.mat`).
+   - Training logs and checkpoint models will be saved locally in a designated directory (e.g., 'TrainedAgents_EE_lstm_...' and  `Training_Episode_EE_lstm_...`).
+   - In the main code for training, episode agent models would be saved for every 100 episodes.
+   - Notice!: Training Log Folder is quite large (e.g., 70GB). You keep in mind to make a space for that.   
 
+### Validation 
+1. Before running `PPO_validate_plot_EpisodeAgents_lstm.m` file, you need to set the name of model, Environment, the number of agents you want to validate.
+2. To evaluate the control performance of the trained agent and visualize the results, run `PPO_validate_plot_EpisodeAgents_lstm.m`.
+   - This script performs validation over the evaluation episodes sequentially in MATLAB without requiring any background shell (`.sh`) scripts.
+   - After finishing all the process of validation code, you will see the folder "Validation_Results", and the name of models   
 
-### Validation
-
-
-### Plot
+### (Optional) Plot
+1. This may not be necessary but I uploaded the plotting code for convenience.
 
 
 ## Results & Performance

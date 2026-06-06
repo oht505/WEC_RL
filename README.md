@@ -12,6 +12,24 @@ To bridge this gap, this project proposes a model-free, sequence-learning contro
 * **Physics-Based Energy Efficiency (EE) Reward**: Introduces a normalized reward function mapping the ratio of average extracted power to the available wave energy flux. Since this scales with the magnitude of potential energy contained in the wave cycles, it remains robust across various wave conditions.
 * **Custom Variable Carry-Over System**: Implements specialized boundary logic that transfers internal reward variables and observation histories between partitioned sub-episodes, ensuring seamless temporal learning over long sequences.
 
+
+## Environment & Prerequisites
+* **1. MATLAB (R2025a) / Simulink**
+* **2. Required MATLAB Toolbox**: 
+     * Reinforcement Learning
+     * Deep Learning
+     * Parallel Computing,
+     * Statistics and Machine Learning
+     * Control System
+     * DSP system, 
+     * Signal Processing
+     * Simulink
+     * Simulink Control Design
+     * Simscape
+     * Simscape Electrical
+* **3. High-Performance Computing (HPC) with Slurm for parallel training.**
+
+
 ## Repository Structure
 
 To ensure execution in MATLAB/Simulink without intricate path configuration, all primary executable scripts, simulation setups, and control logic are maintained directly within the root directory.
@@ -33,32 +51,23 @@ WEC_RL/                          # Project root directory
 ├── 
 │   
 │   
+# Plot
+├── 
+│   
+│   
 └── 
-
-## Environment & Prerequisites
-* **1. MATLAB (R2025a) / Simulink**
-* **2. Required MATLAB Toolbox**: 
-     * Reinforcement Learning
-     * Deep Learning
-     * Parallel Computing,
-     * Statistics and Machine Learning
-     * Control System
-     * DSP system, 
-     * Signal Processing
-     * Simulink
-     * Simulink Control Design
-     * Simscape
-     * Simscape Electrical
-* **3. High-Performance Computing (HPC) with Slurm for parallel training.**
 
 
 ## How to Run
 ### Dataset Generation
 
+
+
 ### Training
 
 ### Validation
 
+### Plot
 
 
 ## Results & Performance

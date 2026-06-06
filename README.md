@@ -36,31 +36,19 @@ To bridge this gap, this project proposes a model-free, sequence-learning contro
 
 To ensure execution in MATLAB/Simulink without intricate path configuration, all primary executable scripts, simulation setups, and control logic are maintained directly within the root directory.
 ````
-WEC_RL/                           # Project root directory
-├── functions/                    # 
-│    └── generate_wave_data.m     # 
-├── hydro/ 
-├── README.md                     # Project documentation and reproduction guide
-├── 
-├── 
-│
-# Train/Validation Scripts & Simulation Files (Kept in the root directory for easy execution)
-├── 
-├── 
-├── 
-├── 
-├── 
-├── 
-│
-# Data & Output Directories (Automated script outputs are directed here)
-├── 
+WEC_RL/                                        # Project root directory
+├── functions/                                 # 
+│    └── generate_wave_data.m                  # Generate wave time-series 
+├── hydro/                                     # Ocean engineering hydrodynamics equation
+├── PPO_validate_plot_EpisodeAgent_lstm.m      # Validation for agents' performance
+├── README.md                                  # Project documentation and reproduction guide
+├── RM3_PPO_Env_lstm_main.slx                  # Simulation Environment 
+├── RM3_PPO_Env_lstm_main_train.m              # Main Training code
+├── RM3_PPO_init_EE_lstm.m                     # Simulation parameter initialization file
+├── rm3_ss_0p1.mat                             # WEC simulator  
+├── split_wave_dataset.m                       # Partitioning long wave time-series into smaller parts based on time settings (e.g., 1200s -> 20s x 60, 100s x 12)   
 │   
-│   
-# Plot
-├── 
-│   
-│   
-└── 
+└── valid_lstm.sh                              # Bash file for running 'PPO_validate_plot_EpisodeAgent_lstm.m' 
 ````
 
 ## How to Run

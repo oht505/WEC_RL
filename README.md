@@ -68,7 +68,7 @@ The model was validated against 200 diverse wave datasets. The results demonstra
 
 | Metric | Fixed Damping (Baseline) | RL Controller (Ours) | Improvement |
 | :--- | :---: | :---: | :---: |
-| **Total Energy Extracted** | 3.11x10^8 J | 3.38 10^8 J | **+ 8.64%**|
+| **Total Energy Extracted** | $3.11 \times 10^8$ J | $3.38 \times 10^8$ J | **+ 8.64%**|
 | **Capture Width Ratio (CWR)** | 23.69% | 25.71% | **+ 8.68%**  |  
 
 

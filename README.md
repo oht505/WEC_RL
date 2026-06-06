@@ -1,5 +1,3 @@
-# Under Construction (Keep working on it now)
-
 # Optimal Control of a Wave Energy Converter via Recurrent Reinforcement Learning
 
 This repository contains the official implementation of an AI-driven control framework designed to maximize energy extraction efficiency for the Reference Model 3 (RM3) Wave Energy Converter (WEC) using Deep Reinforcement Learning.
@@ -48,7 +46,8 @@ WEC_RL/                                        # Project root directory
 ├── RM3_PPO_Env_lstm_main.slx                  # Simulation Environment 
 ├── RM3_PPO_Env_lstm_main_train.m              # Main Training code
 ├── RM3_PPO_init_EE_lstm.m                     # Simulation parameter initialization file
-├── rm3_ss_0p1.mat                             # WEC simulator  
+├── rm3_ss_0p1.mat                             # WEC simulator info 
+├── run_generate_wave_data.mat                 # Create Training & Validation Dataset  
 ├── split_wave_dataset.m                       # Partitioning long wave time-series into smaller parts based on time settings (e.g., 1200s -> 20s x 60, 100s x 12)     
 └── valid_lstm.sh                              # Bash file for running 'PPO_validate_plot_EpisodeAgent_lstm.m' 
 ````

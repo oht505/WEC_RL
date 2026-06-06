@@ -35,7 +35,7 @@ To bridge this gap, this project proposes a model-free, sequence-learning contro
 ## Repository Structure
 
 To ensure execution in MATLAB/Simulink without intricate path configuration, all primary executable scripts, simulation setups, and control logic are maintained directly within the root directory.
-```text
+````
 WEC_RL/                           # Project root directory
 ├── functions/                    # 
 │    └── generate_wave_data.m     # 
@@ -61,7 +61,7 @@ WEC_RL/                           # Project root directory
 │   
 │   
 └── 
-```
+````
 
 ## How to Run
 ### Train & Validation Dataset Generation

@@ -14,6 +14,9 @@ To bridge this gap, this project proposes a model-free, sequence-learning contro
 * **Physics-Based Energy Efficiency (EE) Reward**: Introduces a normalized reward function mapping the ratio of average extracted power to the available wave energy flux. Since this scales with the magnitude of potential energy contained in the wave cycles, it remains robust across various wave conditions.
 * **Custom Variable Carry-Over System**: Implements specialized boundary logic that transfers internal reward variables and observation histories between partitioned sub-episodes, ensuring seamless temporal learning over long sequences.
 
+#### PPO-LSTM Actor-Critic Architecture
+<img width="694" height="544" alt="image" src="https://github.com/user-attachments/assets/1d704d6e-b471-44ab-81ea-29bc73c7efc1" />
+
 
 ## Environment & Prerequisites
 * **1. MATLAB (R2025a) / Simulink**
@@ -64,8 +67,9 @@ WEC_RL/                                        # Project root directory
 
 ## Results & Performance
 
-The model was validated against 200 diverse wave datasets. The results demonstrate:
+The model was validated against 200 diverse wave datasets. There are two evaluation metrics: Mean Cumulative Energy and Capture Width Ratio (CWR). Mean Cumulative Energy is the average of the total electricity energy extracted at the end of each evaluation epsiode across the 200 test wave profiles. CWR is to evaluate how effectively the device captures energy relative to the incoming wave power. The results demonstrate:
 
+### Mean Cumulative Energy Comparison (Table) 
 | Control | Mean Energy ($10^8$ J) | Improvement vs. Baseline ($%$)|
 | :--- | :---: | :---: |
 | Theoretical Maximum | 3.11 | - |
@@ -73,8 +77,9 @@ The model was validated against 200 diverse wave datasets. The results demonstra
 | Instantaneous Frequency (IF) | 3.37 | +8.36% |
 | **Proposed PPO-LSTM** | **3.38** | **+8.68%** |
 
-[AllComparison_CWR.pdf](https://github.com/user-attachments/files/28661078/AllComparison_CWR.pdf)
+### Capture Width Ratio Comparison (Box plot)
+<img width="388" height="425" alt="image" src="https://github.com/user-attachments/assets/fd8627bf-5f36-49eb-ab09-f65af9bde81f" />
 
-
-
+### Detailed Control Action Analysis
+<img width="718" height="402" alt="image" src="https://github.com/user-attachments/assets/9678035d-77ba-44f0-b925-2f9b38aada85" />
 

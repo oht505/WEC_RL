@@ -117,7 +117,7 @@ pctRunOnAll('FinalSimState = [];');
 
 % Setup to use Logging Data while training
 tag = sprintf("_Seed%d", exp_seed);
-basePath = '/nfs/hpc/share/ohhyun/WEC';
+basePath = fileparts(mfilename('fullpath'));
 folderName = "Training_Episode_EE_lstm_split20_Filter0p25_dt0p1_Best" + tag;
 logDir = fullfile(basePath, folderName);
 

@@ -66,9 +66,12 @@ WEC_RL/                                        # Project root directory
 
 The model was validated against 200 diverse wave datasets. The results demonstrate:
 
-| Metric | Fixed Damping (Baseline) | RL Controller (Ours) | Improvement |
-| :--- | :---: | :---: | :---: |
-| **Total Energy Extracted** | $3.11 \times 10^8$ J | $3.38 \times 10^8$ J | **+ 8.64%**|
-| **Capture Width Ratio (CWR)** | 23.69% | 25.71% | **+ 8.68%**  |  
+| Control | Mean Energy ($10^8$ J) | Improvement vs. Baseline ($\%$)|
+| :--- | :---: | :---: |
+| Theoretical Maximum | $3.11$ J | - |
+| Fixed-Damping (Baseline) | $6.30$ | Base |
+| Instantaneous Frequency (IF) | $3.37$ | $+8.36%$ |
+| \textbf{Proposed PPO-LSTM} | \textbf{$3.38$} | $+8.68%$ |
+
 
 

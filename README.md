@@ -1,3 +1,5 @@
+# Under Construction (Keep working on it now)
+
 # Optimal Control of a Wave Energy Converter via Recurrent Reinforcement Learning
 
 This repository contains the official implementation of an AI-driven control framework designed to maximize energy extraction efficiency for the Reference Model 3 (RM3) Wave Energy Converter (WEC) using Deep Reinforcement Learning.
@@ -34,8 +36,11 @@ To bridge this gap, this project proposes a model-free, sequence-learning contro
 
 To ensure execution in MATLAB/Simulink without intricate path configuration, all primary executable scripts, simulation setups, and control logic are maintained directly within the root directory.
 
-WEC_RL/                          # Project root directory
-├── README.md                    # Project documentation and reproduction guide
+WEC_RL/                           # Project root directory
+├── functions/                    # 
+│    └── generate_wave_data.m     # 
+├── hydro/ 
+├── README.md                     # Project documentation and reproduction guide
 ├── 
 ├── 
 │

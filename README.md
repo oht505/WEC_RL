@@ -14,12 +14,52 @@ To bridge this gap, this project proposes a model-free, sequence-learning contro
 
 ## Repository Structure
 
+To ensure execution in MATLAB/Simulink without intricate path configuration, all primary executable scripts, simulation setups, and control logic are maintained directly within the root directory.
+
+WEC_RL/                          # Project root directory
+├── README.md                    # Project documentation and reproduction guide
+├── 
+├── 
+│
+# Train/Validation Scripts & Simulation Files (Kept in the root directory for easy execution)
+├── 
+├── 
+├── 
+├── 
+├── 
+├── 
+│
+# Data & Output Directories (Automated script outputs are directed here)
+├── 
+│   
+│   
+└── 
+
 ## Environment & Prerequisites
-- MATLAB (R2025a) / Simulink
-- MATLAB: RL Toolbox, DL Toolbox
-- High-Performance Computing (HPC) with Slurm for parallel training.
+* **1. MATLAB (R2025a) / Simulink**
+* **2. Required MATLAB Toolbox**: 
+     * Reinforcement Learning
+     * Deep Learning
+     * Parallel Computing,
+     * Statistics and Machine Learning
+     * Control System
+     * DSP system, 
+     * Signal Processing
+     * Simulink
+     * Simulink Control Design
+     * Simscape
+     * Simscape Electrical
+* **3. High-Performance Computing (HPC) with Slurm for parallel training.**
+
 
 ## How to Run
+### Dataset Generation
+
+### Training
+
+### Validation
+
+
 
 ## Results & Performance
 

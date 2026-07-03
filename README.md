@@ -89,8 +89,8 @@ The model was validated against 200 diverse wave datasets. There are two evaluat
 ### Mean Cumulative Energy Comparison (Table) 
 | Control | Mean Energy ($10^8$ J) | Improvement vs. Baseline ($%$)|
 | :--- | :---: | :---: |
-| Theoretical Maximum | 3.11 | - |
-| Fixed-Damping (Baseline) | 6.30 | Base |
+| Theoretical Maximum | 6.30 | - |
+| Fixed-Damping (Baseline) | 3.11 | Base |
 | Instantaneous Frequency (IF) | 3.37 | +8.36% |
 | **Proposed PPO-LSTM** | **3.38** | **+8.68%** |
 

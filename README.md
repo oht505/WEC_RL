@@ -5,7 +5,7 @@ This repository contains the official implementation of an AI-driven control fra
 ## Paper
 This project is described in detail in the following paper:
 
-- (paper/Optimal_Control_of_a_Wave_Energy_Converter_via_Recurrent_Reinforcement_Learning.pdf)
+- [RL-Based Control for a Wave Energy Converter](paper/Optimal_Control_of_a_Wave_Energy_Converter_via_Recurrent_Reinforcement_Learning.pdf)
 
 ## Project Overview
 Maximizing power capture in WECs under irregular and stochastic ocean environments remains a fundamental challenge in ocean engineering. Conventional Control Methods, such as Model Predictive Control (MPC), heavily rely on simplified, linear hydrodynamic models. If these models have major or even minor modeling errors, the complex, non-linear ocean dynamics can drastically degrade the models' performance. 

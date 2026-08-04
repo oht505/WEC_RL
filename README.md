@@ -53,9 +53,6 @@ WEC_RL/                                        # Project root directory
 ├── createActorNetwork_lstm.m                  # Actor Network Architecture setting
 ├── createCriticNetwork_lstm.m                 # Critic Network Architecture setting
 ├── RM3_PPO_init_EE_lstm.m                     # Simulation parameter initialization file
-├── plot_CompareEpisodeAgents.m                # Find best agents in each models and Plot the performance
-├── plot_EpisodeReward_AvgEpisodeReward.m      # Plot episode reward and average episode reward with narrow window for one or more models
-├── plot_eta_fex_damp.m                        # Plot water elevation, excitation forces, damping coefficient in Test simulation results
 ├── rm3_ss_0p1.mat                             # WEC simulator info 
 ├── run_generate_wave_data.mat                 # (Integrated) Create Training & Validation Dataset     
 └── split_wave_dataset.m                       # Partitioning long wave time-series into smaller parts based on time settings (e.g., 1200s -> 20s x 60, 100s x 12)    
